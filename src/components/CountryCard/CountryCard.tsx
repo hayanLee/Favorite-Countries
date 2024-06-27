@@ -7,19 +7,19 @@ interface CardProps {
 }
 
 function Card({ country, onClick, isSelected }: CardProps) {
+    console.log(country);
     const {
         name: { common },
         capital,
         flags: { svg: flagImg },
+        region,
     } = country;
 
     return (
         <div
-            className={
-                isSelected
-                    ? 'bg-red-50'
-                    : 'bg-white border rounded-md p-3 aspect-square shadow-sm hover:scale-105 hover:shadow-lg transition cursor-pointer '
-            }
+            className={`bg-white border rounded-md p-3 aspect-square shadow-sm hover:scale-105 hover:shadow-lg transition cursor-pointer ${
+                isSelected ? 'border-green-500 border-2' : ''
+            } `}
             onClick={onClick}
         >
             <div className='h-1/2 w-full'>
@@ -31,7 +31,9 @@ function Card({ country, onClick, isSelected }: CardProps) {
             </div>
             <div className='mt-4 pl-2'>
                 <h5 className='text-lg font-semibold'>{common}</h5>
-                <h6 className='text-slate-400'>{capital}</h6>
+                <h6 className='text-slate-500'>
+                    {capital} / {region}
+                </h6>
             </div>
         </div>
     );
