@@ -7,7 +7,6 @@ interface CardProps {
 }
 
 function Card({ country, onClick, isSelected }: CardProps) {
-    console.log(country);
     const {
         name: { common },
         capital,
