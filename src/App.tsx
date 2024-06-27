@@ -9,7 +9,7 @@ function App() {
     useEffect(() => {
         (async () => {
             const result = await getCountries();
-            const sortedByName = result.sort((a, b) =>
+            const sortedByName = result.sort((a: Country, b: Country) =>
                 a.name.common.localeCompare(b.name.common)
             );
             setCountries(sortedByName);
